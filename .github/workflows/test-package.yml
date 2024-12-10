@@ -50,13 +50,11 @@ jobs:
         pip install pyarrow
     - name: Set up Blender
       run: |
-        wget https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.4-linux-x64.tar.xz
-        tar -xf blender-4.2.4-linux-x64.tar.xz
+        pwd
+        wget -qO- https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.4-linux-x64.tar.xz | tar xJ
         export PATH=blender-4.2.4-linux-x64/:$PATH
         blender --verion
         which blender
-    - name: print blender version
-      run: blender --version
     - name: Install navis
       run: pip install -e .[dev,all]
     # - run: pip install python-igraph
