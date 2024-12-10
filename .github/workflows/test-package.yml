@@ -45,10 +45,10 @@ jobs:
     #   if: ${{ matrix.igraph == 'igraph' }}
     - name: Report dependency versions
       run: pip freeze -r requirements.txt
-    - name: Install Blender
-      uses: moguri/setup-blender@v1
+    - uses: moguri/setup-blender@v1
       with:
           blender-version: '4.2.4'
+    - name: Install Blender
       run: blender --version
     - name: Test
       uses: coactions/setup-xvfb@v1
