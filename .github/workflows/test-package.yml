@@ -49,9 +49,12 @@ jobs:
         pip install git+https://github.com/siavashk/pycpd@master
         pip install pyarrow
     - name: Set up Blender
-      uses: moguri/setup-blender@v1
-      with:
-          blender-version: '4.2.4'
+      run: |
+        wget https://mirrors.iu13.net/blender/release/Blender4.2/blender-4.2.4-linux-x64.tar.xz
+        tar -xf blender-4.2.4-linux-x64.tar.xz
+        export PATH=blender-4.2.4-linux-x64/:$PATH
+        blender --verion
+        which blender
     - name: print blender version
       run: blender --version
     - name: Install navis
