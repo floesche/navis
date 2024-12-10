@@ -31,6 +31,11 @@ jobs:
           libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
           libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0 graphviz graphviz-dev\
           blender
+    - name: test blender
+      run: |
+        which blender
+        blender --version
+        /usr/bin/blender --version
     - name: Install dependencies
       run: |
         pip install --upgrade pip
