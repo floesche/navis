@@ -22,18 +22,13 @@ jobs:
     - name: Free Disk Space (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
-        # this might remove tools that are actually needed,
-        # if set to "true" but frees about 6 GB
         tool-cache: false
-      
-        # all of these default to true, but feel free to set to
-        # "false" if necessary for your workflow
         android: true
         dotnet: true
         haskell: true
-        large-packages: true
-        docker-images: true
-        swap-storage: true
+        large-packages: false
+        docker-images: false
+        swap-storage: false
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
@@ -53,7 +48,8 @@ jobs:
         pip install flybrains --no-deps
         pip install git+https://github.com/siavashk/pycpd@master
         pip install pyarrow
-    - uses: moguri/setup-blender@v1
+    - name: Set up Blender
+      uses: moguri/setup-blender@v1
       with:
           blender-version: '4.2.4'
     - name: print blender version
