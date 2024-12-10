@@ -48,7 +48,7 @@ jobs:
     - name: Install Blender
       uses: actions/checkout@v4
       uses: moguri/setup-blender@v1
-        with:
+      with:
           blender-version: '4.2.4'
       run: blender --version
     - name: Test
